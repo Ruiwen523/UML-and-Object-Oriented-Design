@@ -59,12 +59,12 @@
 3. 風險管理: 評估可能的需求變更和其他不確定性，制定應對計畫，以便在需要時能夠迅速作出反應
 
 ### 最適合實施瀑布的情境
-生命控制系統 (Life-control Systems)
-醫療系統 Medical (Systems)
-軍事系統 Military (Systems)
+- 生命控制系統 (Life-control Systems)  
+- 醫療系統 Medical (Systems)  
+- 軍事系統 Military (Systems)  
 
 ### 結論:  
-若需求能夠被明確定義且於系統開發中後期不會遇到頻繁需求上的變更，則採取瀑布模式是一種好的選擇。
+若需求能夠被明確定義且於系統開發中後期不會遇到頻繁需求上的變更，則採取瀑布模式是一種好的選擇。  
 反之若預期將遭遇頻繁變更，則應考慮使用更適合變化的開發方法，如敏捷開發。
 
 
@@ -145,7 +145,7 @@
 ### 理解物件 (Objects)
 路上有位年長的爺爺和奶奶幸福的走在一起。
 
-**對象(受詞是句子中的名詞)**: 爺爺奶奶  
+**物件對象(受詞是句子中的名詞)**: 爺爺奶奶  
 不變的**屬性(形容詞)**:老年(年紀)、男/女(性別)  
 可變的**屬性(形容詞)**:幸福/快樂/開懷(氛圍)、路上/公園椅子上/用餐(場景)  
 **動作(行為)**:走在一起/坐在一起/擁抱在一起  
@@ -164,9 +164,10 @@ step3. 在這個主題下的類別都有的屬性(Property):外觀、種族、�
 在物件導向程式設計中"抽象"一詞，通常是用來概括同一主題概念之間，所擁有的共同屬性或方法。  
 簡單來說無倫是抽象類別或是介面，僅提供方法/屬性的聲明，並且不提供任何實現，而這些方法/屬性具體的實現，則需由繼承抽象的子類別具體化主題概念定義。
 
-- 像這樣將同一主題概念底下的共同特性提取出來的方式，即可被稱為抽象。
-- 實務上優先定義專案所需的共同屬性/行為，而忽略一些用不到的其他屬性，使我們專注於重要的事務上，而不需要全面的去定義。
-- 比如在玩家面對虛擬世界中的"怪物"時，困難程度選擇新手模式下，玩家可能只需在乎通關與怪物的外觀是否好看，而非專注研究屬性(外觀、種族、習性、特長)，或使用的方法等。
+- 透過抽象，我們可以將物件的複雜性隱藏在簡單的介面背後
+- 將同一主題概念底下的共同特性提取出來
+- 定義專案運行時所需的共同屬性/行為，而忽略一些用不到的其他屬性，使我們專注於重要的事務上，而不需要全面的去定義。
+- 比如在玩家面對虛擬世界中的"怪物"時，困難程度在新手模式下，玩家可能只需在乎通關與怪物的外觀是否好看，而非專注研究屬性(外觀、種族、習性、特長)，或使用的方法等。
 
 ### 理解封裝和資料隱藏 (Encapsulation and Data Hiding)
 
@@ -174,7 +175,7 @@ step3. 在這個主題下的類別都有的屬性(Property):外觀、種族、�
 
 - 介面僅暴露必要的公共方法供外部程式碼呼叫使用，才能訪問私有屬性
 - 透過修飾符設置私有(private)來隱藏內部細節，可以保護物件免受外部程式碼干擾
-- 資料隱藏旨在保持物件之間的依賴關係最小化
+- 資料隱藏旨在保持物件之間的依賴關係最小化、保護物件免受不必要的外部依賴
 - 防止系統依賴於可能被修改的屬性或方法
 
 一個緊密耦合系統 : 大部分物件都相互依賴，這是一個錯誤設計，因為一旦改了A節點，將導致BCD無法運作。  
@@ -182,17 +183,172 @@ step3. 在這個主題下的類別都有的屬性(Property):外觀、種族、�
 
 在主題概念中怪物會是一種基底類別(Base Class)，而哥布林(Goblin)與飛龍(Dragon)則為派生類別(Derived Class)，通過繼承並實現它所定義的屬性/方法，並擁有各自特有的方法，其中有些屬性與方法可能是私有的(private)，而在主程式中宣告哥布林、飛龍物件時，只能透過它們的公開(public)方法對其私有屬性進行訪問，。
 
-
-
+- 比方說公開了怪物的棲息地屬性，則任何更改都可能導致系統的其他部分被影響，反之若限制對這些隱藏屬性的訪問，則不必擔心變化帶來的連鎖反應。
+- 只需公開使用上所需的屬性或方法
 
 ### 理解繼承(Inheritance)
 
+如果沒有繼承比方說建築設計類別、會計類別，可能都需要計算Sum()、Avg()，就會需要在每一個類別上都撰寫加總以及平均值方法。  
+如果沒有特地要覆寫方法，則可避免類似的程式碼一直產生。
+
+- 重用性 : 物件導向是關於關注點的粒度和分離，因此應善用繼承以避免編寫大量重複且類似的程式碼
+- 通常與多態(型)搭配使用
+
+### 理解多態/型(Polymorphism)
+
+多型又區分為**編譯時期多型(靜態)**與**執行時期多型(動態)**
+
+靜態多型:
+- 在編譯時期，編譯器（compiler）就已經確定了實際呼叫要執行的實際實現方法。
+- 主要涉及編譯時期的型別檢查和方法解析
+- 編譯器檢查變數的聲明和賦值、函數和方法的引數和返回值的型別、顯式和隱式的型別轉換。
+
+動態多型:  
+- 在執行時期，由系統程式決定實際要執行的方法或操作
+- 主要涉及到在執行期間的方法解析與物件的實際型別
+- 物件的實際型別在運行時期才確定
+- 這種解析發生在方法呼叫的瞬間，系統必須根據物件的實際型別來找到對應的方法實現 
+
+
+``` C#
+// 基礎類別
+public class Monster
+{
+    // 私有屬性
+    private string name;
+    private string appearance;
+    private string race;
+    private string habitat;
+    private string behavior;
+
+    // Constructor
+    public Monster(string nm, string app, string rac, string hab, string beh)
+    {
+        name = nm;
+        appearance = app;
+        race = rac;
+        habitat = hab;
+        behavior = beh;
+    }
+
+    // 方法
+    public void SurviveAndHunt() // 戰鬥時使用的技能搭配方法
+    {
+        Console.WriteLine($"{race} is surviving and hunting.");
+    }
+
+    public void TerritoryDefense() // 各種血量下切換的戰鬥階段 (影響技能搭配方法)
+    {
+        Console.WriteLine($"{race} is defending its territory.");
+    }
+
+    public void MakeSound()
+    {
+        Console.WriteLine($"{name} make a sound.");
+    }
+
+    // Getter 方法
+    public string GetName()
+    {
+        return this.name;
+    }
+
+    ...
+}
+
+// 衍生類別: 哥布林
+public class Goblin : Monster
+{
+    // 私有資料成員
+    private string Habitat;
+
+    // 建構子 (Constructor)
+    public Goblin(string hab) : base("哥布林", "矮小", "綠精靈", "群居", "靈敏") 
+    {
+        Habitat = hab;
+    }
+
+    public override void MakeSound()
+    {
+        Console.WriteLine("Goblin evil laugh!");
+    }
+    ...
+}
+
+// 衍生類別: 飛龍
+public class Dragon : Monster
+{
+    // 私有資料成員
+    private string Habitat;
+
+    // 建構子 (Constructor)
+    public Dragon(string hab) : base("飛龍", "巨大", "龍類", "領地", "大胃王") 
+    {
+        Habitat = hab;
+    }
+
+    public override void MakeSound()
+    {
+        Console.WriteLine("Dragon intimidate!");
+    }
+    ...
+}
+
+// 外部程式
+public class Program
+{
+    // 靜態多型 : 由編譯時期就已經決定好實際執行的物件型別
+    static void Main1()
+    {
+        Monster myMonster = new Dragon();
+        myMonster.MakeSound();
+        // output: "Dragon intimidate!"
+    }
+
+    // 動態多型 : 由執行時期決定實際執行的物件型別
+    static void Main2(int playerLevel = 10)
+    {
+        Monster myMonster = LicenseToAdventure(playerLevel);
+        myMonster.MakeSound();
+        // output: "Goblin evil laugh!"
+    }
+
+    private Monster LicenseToAdventure(int level)
+    {
+        switch (level)
+        {
+            case level < 15:
+                return new Goblin("森林");
+            else
+                return new Dragon("山谷");
+        }
+    }
+}
+```
+
+### 複習
+在物件導向程式設計中，為防止系統依賴於可能被修改的屬性或方法，是透過封裝和抽象的概念實現。
+
+1. 封裝 (Encapsulation)
+   - 具備私有屬性、公開屬性、公開方法
+   - 防止系統直接依賴於內部實現細節，僅能透過公開的方法/屬性進行訪問
+2. 抽象（Abstraction）
+   - 將物件的複雜度隱藏於簡單的介面背後
+   - `IMonster`定義基礎屬性/方法，而具體實現則在`Goblin`、`Dragon`類別中
+   - 系統則依賴於`IMonster`介面，而不需要直接依賴於實現該介面的物件類別
+3. 依賴反轉原則 （Dependency Inversion Principle, DIP）
+   - 其主張高層模組不應依賴於底層模組，甚至兩者皆應依賴於抽象。
+     - 高層模組: 應用程式的主要商業邏輯處理與流程
+     - 底層模組: 資料訪問層、檔案操作、信件往來、其他最小單元的結構化方法
+   - 這反轉了傳統的依賴方向，強調了對抽象的依賴，而非具體實現
+   - 即高層/底層模組之間溝通，同樣都過定義好的抽象介面進行相依互動。
 
 
 
-### 進一步理解物件導向
 
-補充說明，以更全面地理解物件導向的概念
+### 補充說明
+
+以更全面地理解物件導向的概念
 
 繼承（Inheritance）：繼承是物件導向程式設計中的一個重要概念，它允許你建立一個新的類別，以重複使用現有類別的屬性和方法。你可以考慮在Monster例子中引入繼承，例如創建一個基本的Monster類別，然後衍生出更具體的子類別，如FireMonster、WaterMonster等，以表示不同屬性的Monster。
 
@@ -206,6 +362,7 @@ step3. 在這個主題下的類別都有的屬性(Property):外觀、種族、�
 
 
 
+網路例子: 
 ``` C#
 using System;
 
@@ -258,6 +415,8 @@ class Program
 在 Main 方法中，我們創建了一個 Shape 類別的陣列，其中包含不同類型的圖形對象。通過迭代這個陣列，我們可以動態呼叫每個圖形物件的 Draw 方法，並根據實際的物件類型執行相應的繪製操作。
 
 這種設計使得系統更容易擴展，當需要新增其他圖形類型時，只需創建一個新的衍生類別，而不必修改現有的程式碼。這展現了物件導向程式設計中的多態性和擴展性的優勢，有助於應對變動性的需求。
+
+### 分析與設計 (Analysis and Design)
 
 
 ## UML 基礎
