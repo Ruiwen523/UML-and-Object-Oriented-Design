@@ -462,31 +462,34 @@ class Program
 ## 統一塑模語言 (Unified Modeling Language, UML)
 
 ref:
-1. UML: https://hackmd.io/@lchuang8211/BJx7n82KL#%E8%B3%87%E6%96%99%E6%B5%81%E7%A8%8B%E5%9C%96Data-Flow-Diagram-DFD  
-2. C4圖: https://www.youtube.com/watch?v=rr9OUCC6h2M
-3. 什麼是物件導向與UML: https://weilihmen.medium.com/%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91-%E8%BB%9F%E9%AB%94%E7%94%A2%E5%93%81%E7%B6%93%E7%90%86%E7%9A%84%E5%85%A5%E9%96%80%E8%AA%B2-b3d8b3fa1be4
-4. 14 種 UML 圖的綜合指南: https://www.cybermedian.com/tw/a-comprehensive-guide-to-14-types-of-uml-diagram/
-5. MBA智庫百科: https://wiki.mbalib.com/zh-tw/UML
-6. 簡單理解 UML 類別圖: https://misomiso43.medium.com/%E7%B0%A1%E5%96%AE%E7%90%86%E8%A7%A3-uml-%E9%A1%9E%E5%88%A5%E5%9C%96-f0b32a3272c
+1. https://zh.wikipedia.org/zh-tw/%E7%BB%9F%E4%B8%80%E5%BB%BA%E6%A8%A1%E8%AF%AD%E8%A8%80#
+2. UML: https://hackmd.io/@lchuang8211/BJx7n82KL#%E8%B3%87%E6%96%99%E6%B5%81%E7%A8%8B%E5%9C%96Data-Flow-Diagram-DFD  
+3. C4圖: https://www.youtube.com/watch?v=rr9OUCC6h2M
+4. 什麼是物件導向與UML: https://weilihmen.medium.com/%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91-%E8%BB%9F%E9%AB%94%E7%94%A2%E5%93%81%E7%B6%93%E7%90%86%E7%9A%84%E5%85%A5%E9%96%80%E8%AA%B2-b3d8b3fa1be4
+5. 14 種 UML 圖的綜合指南: https://www.cybermedian.com/tw/a-comprehensive-guide-to-14-types-of-uml-diagram/
+6. MBA智庫百科: https://wiki.mbalib.com/zh-tw/UML
+7. 簡單理解 UML 類別圖: https://misomiso43.medium.com/%E7%B0%A1%E5%96%AE%E7%90%86%E8%A7%A3-uml-%E9%A1%9E%E5%88%A5%E5%9C%96-f0b32a3272c
 
 ### 使用UML的好處:
 1. 透過思考Class、Object、interaction可使我們對將要實現的需求有更深入的理解
 2. 透過設計可使我們能更有效的與其他開發人員進行溝通，並可使用UML圖作為開發或改進的起點
-3. 簡單的圖表清晰的說明系統能做到什麼
-4. 客戶可快速查看是否缺少了什麼
 
 > 詳細的需求還是需要靠PM、SD給出的規格書才能詳盡描述功能
 
 #### Use Case Diagram (用例圖)
 目的是可視化系統的功能需求。  
 可針對單一功能進行描繪，或包含其他子功能的用例圖。
-繪畫方法:
+好處  
+1. 簡單的圖表清晰的說明系統能做到什麼
+2. 客戶可快速查看是否缺少了什麼  
+
+繪畫方法:  
 畫橢圓並將標題放在其中，接下來開始畫火柴人，在通用情況下將其放置在橢圓的左側空白區域，作為與系統產生互動的主要參與者或其他系統，右側則為次要參與者
 
+範例:  
 以設定中華電信數據機為例，新的光纖ADSL數據機+Wifi分享器，首先由工程師or外包廠商來到你家進行設備更換or安裝，接下來會在事先約定好的方式寄送一組帳密給用戶，以簡訊為例通常只會給予一般使用者帳密，而非管理員的進階帳密，在用例圖中我們有好幾個橢圓，對應著路由器(Route)可設定基本、進階功能，但一般使用者僅能針對其中的Wifi基本設定進行開、關、SSIS(網路名稱)進行編輯，但如果是Admin使用者則可以多使用防火牆、限制連接速率等橢圓功能...  
 
 ![ADSL管理介面用例圖](./截圖/用例圖.png)
-
 
 免費工具:
 1. StartUML
